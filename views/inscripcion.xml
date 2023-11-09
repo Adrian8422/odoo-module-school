@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="school.inscripcion_list">
+            <field name="name">school inscripcion list</field>
+            <field name="model">school.inscripcion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="alumno_id" />
+                    <field name="programa_id" />
+                </tree>
+            </field>
+        </record>
+
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="school.action_inscripcion_window">
+            <field name="name">school inscripcion window</field>
+            <field name="res_model">school.inscripcion</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <menuitem name="School" id="school.menu_root" />
+
+        <!-- menu categories -->
+        <menuitem name="Inscripcion" id="school.menu_3" parent="school.menu_root" />
+
+        <!-- actions -->
+        <menuitem name="Inscripciones" id="school.menu_3_inscripcion_list" parent="school.menu_3"
+            action="school.action_inscripcion_window" />
+    </data>
+</odoo>

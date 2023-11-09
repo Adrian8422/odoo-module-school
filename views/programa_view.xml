@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <record model="ir.ui.view" id="school.programa_list">
+            <field name="name">school programa list</field>
+            <field name="model">school.programa</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="descripcion" />
+                    <button string="Alumnos Inscritos" type="object" name="get_alumnos_inscritos" />
+                </tree>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="school.programa_alumnos_inscritos_list">
+            <field name="name">school.programa.alumnos.inscritos.list</field>
+            <field name="model">school.inscripcion</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="alumno_nombre" string="Nombre" />
+                    <field name="alumno_apellido" string="Apellido" />
+                    <field name="alumno_legajo" string="Nro de Legajo" />
+                    <field name="alumno_fecha_nacimiento" string="Fecha de Nacimiento" />
+                    <field name="alumno_email" string="Email" />
+                    <field name="alumno_telefono" string="Teléfono" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- actions opening views on models -->
+
+        <record model="ir.actions.act_window" id="school.action_programa_window">
+            <field name="name">school programa window</field>
+            <field name="res_model">school.programa</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Top menu item -->
+
+        <menuitem name="School" id="school.menu_root" />
+
+        <!-- menu categories -->
+        <menuitem name="Programas" id="school.menu_2" parent="school.menu_root" />
+
+        <!-- actions -->
+        <menuitem name="Programas" id="school.menu_2_programas_list" parent="school.menu_2"
+            action="school.action_programa_window" />
+
+
+    </data>
+</odoo>
